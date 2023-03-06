@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/blog-backend.iml" filepath="$PROJECT_DIR$/.idea/modules/blog-backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/phase-3-sinatra-react-project.iml" filepath="$PROJECT_DIR$/.idea/phase-3-sinatra-react-project.iml" />
+    </modules>
+  </component>
+</project>
