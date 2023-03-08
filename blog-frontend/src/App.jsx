@@ -9,7 +9,7 @@ const App = () => {
     <div className='container'>
       <Switch>
         <Route path='/' exact component={Home} />
-        <Route path='/blog/:id' component={Blog} />
+        <Route path='/blogs/:id' component={Blog} />
         <Redirect to='/' />
       </Switch>
     </div>
