@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-class Blog < ActiveRecord::Base
+class Blog  < ActiveRecord::Base
   belongs_to :author
-  has_many :blog_subcategories
-  has_many :subcategories, through: :blog_subcategories
+  belongs_to :category
 end

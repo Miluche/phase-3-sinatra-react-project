@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import EmptyList from '../../components/common/EmptyList';
 import BlogList from '../../components/Home/BlogList';
 import Header from '../../components/Home/Header';
 import SearchBar from '../../components/Home/SearchBar';
-import { blogList } from '../../config/data';
+// import { blogList } from '../../config/data';
 
 const Home = () => {
-  const [blogs, setBlogs] = useState(blogList);
+  const [blogs, setBlogs] = useState([]);
   const [searchKey, setSearchKey] = useState('');
+
+  useEffect(() => {
+    fetch("http://localhost:9292/")
+        .then((r) => r.json())
+        .then((blogs) => setBlogs(blogs));
+  }, []);
 
   // Search submit
   const handleSearchBar = (e) => {
@@ -17,8 +23,7 @@ const Home = () => {
 
   // Search for blog by category
   const handleSearchResults = () => {
-    const allBlogs = blogList;
-    const filteredBlogs = allBlogs.filter((blog) =>
+    const filteredBlogs = blogs.filter((blog) =>
       blog.category.toLowerCase().includes(searchKey.toLowerCase().trim())
     );
     setBlogs(filteredBlogs);
@@ -26,7 +31,7 @@ const Home = () => {
 
   // Clear search and show all blogs
   const handleClearSearch = () => {
-    setBlogs(blogList);
+    setBlogs(blogs);
     setSearchKey('');
   };
 
