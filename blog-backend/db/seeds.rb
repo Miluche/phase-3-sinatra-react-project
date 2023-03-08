@@ -10,16 +10,16 @@ Author.create!(authors)
 # Seed data for categories
 categories = [
   { name: "Technology", subcategories_attributes: [
-    { name: "Software Engineering" },
-    { name: "Mobile Development" }
+    { name: "SoftwareEng" },
+    { name: "MobileDevs" }
   ]},
   { name: "Sports", subcategories_attributes: [
     { name: "Football" },
     { name: "Basketball" }
   ]},
   { name: "Politics", subcategories_attributes: [
-    { name: "World News" },
-    { name: "Local News" }
+    { name: "WorldNews" },
+    { name: "LocalNews" }
   ]}
 ]
 

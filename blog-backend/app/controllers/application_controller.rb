@@ -18,6 +18,27 @@ class ApplicationController < Sinatra::Base
     blogs.to_json
   end
 
+  get '/blogs/:id' do
+    blog = Blog.find_by(id: params[:id])
+
+    if blog.nil?
+      status 404
+      return { message: "Blog not found" }.to_json
+    end
+    status 200
+    {
+      id: blog.id,
+      title: blog.title,
+      category: blog.category.name,
+      subCategory: blog.category.subcategories.pluck(:name),
+      description: blog.content,
+      authorName: blog.author.name,
+      authorAvatar: blog.author.avatar,
+      createdAt: blog.created_at.strftime('%B %d, %Y'),
+      cover: blog.cover
+    }.to_json
+  end
+
   get '/blogs/:category_name' do
     category = Category.find_by(name: params[:category_name])
 
@@ -187,6 +208,5 @@ class ApplicationController < Sinatra::Base
       return { errors: category.errors }.to_json
     end
   end
-
 
 end
